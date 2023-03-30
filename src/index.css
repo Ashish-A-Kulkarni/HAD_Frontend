@@ -1,0 +1,192 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+form {
+  display: flow-root;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  border: 2px solid #ccc;  /* Added to create a border */
+  border-radius: 10px;    /* Added to round the corners of the border */
+  padding: 20px;          /* Added to create some space between the border and the form elements */
+  box-shadow: 2px 2px 5px rgba(94, 12, 12, 0.301); /* Added to create a subtle drop shadow */
+  background-color: #a467f3;  /* Added to set a light gray background color */
+}
+
+label {
+  display: flex;   /* Added to set flexbox display */
+  flex-direction: column;   /* Added to change direction to column */
+  font-size: 20px;
+  margin-bottom: 5px;
+  
+}
+
+input {
+  padding: 5px;
+  margin-top: 5px;   /* Added to create space between label and input */
+  margin-bottom: 5px;   /* Added to create space between inputs */
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+
+button {
+  padding: 10px;
+  border-radius: 3px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  display: block; 
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #e2e2e2;
+}
+
+.login-form {
+  padding: 100px;
+  background-color: #d4d3d3;
+  border-radius: 100px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+  margin-bottom: 30px;
+  color: black;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: black;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-control {
+  border-color: #8f52a9;
+}
+
+.btn-primary {
+  background-color: #8f52a9;
+  border-color:#8f52a9;
+}
+
+.btn-primary:hover {
+  background-color: #8f52a9;
+  border-color: #8f52a9;
+}
+
+
+button:hover {
+  background-color: #2b68b6;
+}
+
+.button-container {
+  display: flex; /* Use Flexbox */
+  justify-content: space-between; /* Add space between buttons */
+}
+
+.styled-button {
+  background-color: #44c449; /* Green background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 16px 32px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: block; /* Make it a block element */
+  font-size: 24px; /* Font size */
+  margin: 0 auto; /* Center horizontally */
+}
+
+.form-container {
+  max-width: 600px; /* Set a maximum width for the form container */
+  margin: 0 auto; /* Center the form container horizontally */
+  background-color:#300964; /* Add a light gray background */
+  padding: 24px; /* Add some padding to the form container */
+  border-radius: 8px; /* Add a rounded border */
+}
+
+.form-container label {
+  display: block; /* Display each label on a new line */
+  margin-bottom: 12px; /* Add some space between labels */
+}
+
+.form-container input {
+  padding: 8px; /* Add some padding to input fields */
+  border-radius: 4px; /* Add a rounded border to input fields */
+  border: none; /* Remove the border */
+  background-color: #e6e6e6; /* Add a light gray background to input fields */
+  width: 100%; /* Set the input fields to take up the full width of their container */
+  box-sizing: border-box; /* Include padding and border in the input field's width */
+}
+
+.button-container {
+  display: flex; /* Use Flexbox */
+  justify-content: space-between; /* Add space between buttons */
+  margin-top: 24px; /* Add some space between the buttons and the rest of the form */
+}
+
+.button-container button {
+  background-color: #4CAF50; /* Green background */
+  border: none; /* Remove the border */
+  color: white; /* White text */
+  padding: 12px 24px; /* Padding */
+  text-align: center; /* Center text */
+  text-decoration: none; /* Remove underline */
+  display: block; /* Make it a block element */
+  font-size: 16px; /* Font size */
+  border-radius: 4px; /* Add a rounded border */
+  cursor: pointer; /* Change the cursor to a pointer */
+  width: 120px; /* Set a width for the buttons */
+}
+
+.cool-heading {
+  font-size: 48px; /* Increase the font size */
+  font-weight: bold; /* Make the text bold */
+  text-transform: uppercase; /* Convert the text to uppercase */
+  letter-spacing: 2px; /* Add spacing between the letters */
+  color: #f5772e; /* Change the text color */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a text shadow */
+  text-align: center; /* Center the text */
+  margin: 0; /* Remove any margin */
+  padding: 16px; /* Add padding */
+  background-color: #f8f8f8; /* Add a background color */
+  border-radius: 8px; /* Add rounded corners */
+}
+
+.login-container {
+  background-image: url('/logo2048.png');
+  background-size: cover; /* Resize the image to cover the container */
+  background-position: center center; /* Center the image horizontally and vertically */
+}
+
+.register-container {
+  background-image: url('/logo3072.png');
+  background-size: cover; /* Resize the image to cover the container */
+  background-position: center center; /* Center the image horizontally and vertically */
+ 
+}
+
+
