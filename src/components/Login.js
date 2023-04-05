@@ -3,10 +3,15 @@ import React, { useState } from 'react';
 import loginService from '../services/loginService';
 
 const Login = ({ startLogin }) => {
+  // const roleList =[
+  //   "doctor",
+  //   "receptionist"
+  // ]
+  // const [ role, setRole ] = useState('');
   const [loginData, setLoginData] = useState({
     email:'',
     password:'',
-    role:'doctor'
+    role:''
   });
   // const handleLogin = (event) => {
   //   event.preventDefault();
@@ -27,6 +32,7 @@ const Login = ({ startLogin }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setLoginData({ ...loginData, [name]: value });
+    console.log(loginData.role);
   };
 
   const handleSubmit = async (event) => {
@@ -36,6 +42,8 @@ const Login = ({ startLogin }) => {
       if(status==="Success"){
         startLogin(loginData);
         localStorage.setItem('currentUser', loginData.email);
+        localStorage.setItem('currentUserRole', loginData.role);
+        console.log(loginData.role);
         setLoginData('');
       }
       else{
@@ -82,6 +90,19 @@ const Login = ({ startLogin }) => {
             required
           />
         </div>
+        <div>
+        <label htmlFor="password">PASSWORD:</label>
+        <select className="form-control" name="role" id="role" value={loginData.role} onChange={handleChange}>
+            
+            <option >Select Role</option>
+
+          <option value="doctor">doctor</option>
+
+          <option value="receptionist">receptionist</option>
+
+          </select>
+            </div>
+    <br />
         <div className="form-group">
           <button className="styled-button" type="submit">
             Login

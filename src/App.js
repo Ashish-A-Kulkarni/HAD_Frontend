@@ -9,7 +9,8 @@ import PatientList from './components/PatientList';
 import RegistrationForm from './components/RegistrationForm';
 import Success from './components/Success';
 import AlreadyRegistered from './components/AlreadyRegistered';
-
+import { Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 const linkStyle = {
   color: 'white',
   textDecoration: 'none',
@@ -26,9 +27,9 @@ const menuStyle = {
 }
 
 const App = () => {
-
+  const currentUserType = '';
   const [ user, setUser ] = useState(null)
-
+  const navigate = useNavigate();
   // const [ notification, setNotification ] = useState(null)
   // const [ notificationType, setNotificationType ] = useState(null)
   
@@ -57,6 +58,26 @@ const App = () => {
     }
   }
 
+  function DoctorElement(){
+    if(localStorage.getItem('currentUserRole') === 'doctor'){
+      return <><HealthDataForm/></>;
+    }
+    else{
+      return <div>You do not have access to this page</div>;
+    }
+
+  }
+
+  function consult(){
+    return <HealthDataForm/>;
+  }
+
+  const handleLogout = async () => {
+    setUser(null);
+    navigate("/");
+  }
+
+
   return (
     <div>
       {
@@ -64,7 +85,7 @@ const App = () => {
       }
       {
         user!==null &&
-        <Router>
+        
         <div>
           <div style={menuStyle}>
             <div>
@@ -74,6 +95,7 @@ const App = () => {
               <Link to="/RegistrationForm" style={linkStyle}>New Patient Registration</Link>
               <Link to="/HealthDataForm" style={linkStyle}>Doctor's Consultation</Link>
               <Link to="/AlreadyRegistered" style={linkStyle}>Already Registered</Link>
+              <Button onClick={handleLogout}>Logout</Button>
             </div>
           </div>
           <Routes>
@@ -82,10 +104,11 @@ const App = () => {
             <Route path="/AlreadyRegistered" element={<AlreadyRegistered/>} />
             <Route path="/PatientList" element={<PatientList/>} />
             <Route path="/success" element={<Success/>} />
-            <Route path ='/HealthDataForm' element = {<HealthDataForm/>}/>
+            <Route path ='/HealthDataForm' element = {<DoctorElement> <consult /> </DoctorElement>}> </Route>
+            <Route path="*" element = {<div>Page Not Found</div>}/>
           </Routes>
         </div>
-      </Router>
+     
       }
     </div>
     
