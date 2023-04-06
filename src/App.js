@@ -9,6 +9,7 @@ import PatientList from './components/PatientList';
 import RegistrationForm from './components/RegistrationForm';
 import Success from './components/Success';
 import AlreadyRegistered from './components/AlreadyRegistered';
+import Consent from './components/Consent';
 import { Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 const linkStyle = {
@@ -65,11 +66,22 @@ const App = () => {
     else{
       return <div>You do not have access to this page</div>;
     }
-
   }
 
   function consult(){
     return <HealthDataForm/>;
+  }
+
+  function DoctorElement1(){
+    if(localStorage.getItem('currentUserRole') === 'doctor'){
+      return <><Consent/></>;
+    }
+    else{
+      return <div>You do not have access to this page</div>;
+    }
+  }
+  function requestConsent(){
+    return <Consent/>;
   }
 
   const handleLogout = async () => {
@@ -95,6 +107,7 @@ const App = () => {
               <Link to="/RegistrationForm" style={linkStyle}>New Patient Registration</Link>
               <Link to="/HealthDataForm" style={linkStyle}>Doctor's Consultation</Link>
               <Link to="/AlreadyRegistered" style={linkStyle}>Already Registered</Link>
+              <Link to="/Consent" style={linkStyle}>Request Consent</Link>
               <Button onClick={handleLogout}>Logout</Button>
             </div>
           </div>
@@ -104,7 +117,9 @@ const App = () => {
             <Route path="/AlreadyRegistered" element={<AlreadyRegistered/>} />
             <Route path="/PatientList" element={<PatientList/>} />
             <Route path="/success" element={<Success/>} />
+            <Route path="/Consent" element = {<Consent/>} />
             <Route path ='/HealthDataForm' element = {<DoctorElement> <consult /> </DoctorElement>}> </Route>
+            
             <Route path="*" element = {<div>Page Not Found</div>}/>
           </Routes>
         </div>

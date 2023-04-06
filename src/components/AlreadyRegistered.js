@@ -42,6 +42,11 @@ const AlreadyRegistered = ({ onSubmit, onCancel }) => {
       console.log(formData); 
       console.log(11);
       await existingPatientService.updateDetails(abhaid,formData);
+
+      const item2 = await existingPatientService.demographconfirm(abhaid);
+      await item2;
+      console.log(item2);
+
       console.log("Done");
       navigate("/success");
     } catch (exception) {
@@ -92,6 +97,11 @@ const AlreadyRegistered = ({ onSubmit, onCancel }) => {
         district: JSON.parse(t).district
       });
     
+      const item1 = await existingPatientService.demographinit();
+      await item1;
+      console.log(item1);
+
+      console.log("init done");
   };
 
   return (
