@@ -29,11 +29,11 @@ const menuStyle = {
 
 const App = () => {
   const currentUserType = '';
-  const [ user, setUser ] = useState(null)
+  const [user, setUser] = useState(null)
   const navigate = useNavigate();
   // const [ notification, setNotification ] = useState(null)
   // const [ notificationType, setNotificationType ] = useState(null)
-  
+
   // const notificationHandler = (message, type) => {
   //   setNotification(message)
   //   setNotificationType(type)
@@ -51,37 +51,37 @@ const App = () => {
       //const userObject = await loginService.login(credentials)
       setUser(credentials)
       window.localStorage.setItem('loggedInUser', JSON.stringify(credentials))
-      
+
       //notificationHandler(`Logged in successfully as ${credentials.email}`, 'success') 
     }
     catch (exception) {
-     // notificationHandler(`Log in failed, check username and password entered`, 'error')
+      // notificationHandler(`Log in failed, check username and password entered`, 'error')
     }
   }
 
-  function DoctorElement(){
-    if(localStorage.getItem('currentUserRole') === 'doctor'){
-      return <><HealthDataForm/></>;
+  function DoctorElement() {
+    if (localStorage.getItem('currentUserRole') === 'doctor') {
+      return <><HealthDataForm /></>;
     }
-    else{
+    else {
       return <div>You do not have access to this page</div>;
     }
   }
 
-  function consult(){
-    return <HealthDataForm/>;
+  function consult() {
+    return <HealthDataForm />;
   }
 
-  function DoctorElement1(){
-    if(localStorage.getItem('currentUserRole') === 'doctor'){
-      return <><Consent/></>;
+  function DoctorElement1() {
+    if (localStorage.getItem('currentUserRole') === 'doctor') {
+      return <><Consent /></>;
     }
-    else{
+    else {
       return <div>You do not have access to this page</div>;
     }
   }
-  function requestConsent(){
-    return <Consent/>;
+  function requestConsent() {
+    return <Consent />;
   }
 
   const handleLogout = async () => {
@@ -93,11 +93,11 @@ const App = () => {
   return (
     <div>
       {
-          user === null && <Login startLogin={handleLogin}/>
+        user === null && <Login startLogin={handleLogin} />
       }
       {
-        user!==null &&
-        
+        user !== null &&
+
         <div>
           <div style={menuStyle}>
             <div>
@@ -112,62 +112,62 @@ const App = () => {
             </div>
           </div>
           <Routes>
-            <Route path="/" element={<Menu/>} />
-            <Route path="/RegistrationForm" element={<RegistrationForm/>} />
-            <Route path="/AlreadyRegistered" element={<AlreadyRegistered/>} />
-            <Route path="/PatientList" element={<PatientList/>} />
-            <Route path="/success" element={<Success/>} />
-            <Route path="/Consent" element = {<Consent/>} />
-            <Route path ='/HealthDataForm' element = {<DoctorElement> <consult /> </DoctorElement>}> </Route>
-            
-            <Route path="*" element = {<div>Page Not Found</div>}/>
+            <Route path="/" element={<Menu />} />
+            <Route path="/RegistrationForm" element={<RegistrationForm />} />
+            <Route path="/AlreadyRegistered" element={<AlreadyRegistered />} />
+            <Route path="/PatientList" element={<PatientList />} />
+            <Route path="/success" element={<Success />} />
+            <Route path="/Consent" element={<Consent />} />
+            <Route path='/HealthDataForm' element={<DoctorElement> <consult /> </DoctorElement>}> </Route>
+
+            <Route path="*" element={<div>Page Not Found</div>} />
           </Routes>
         </div>
-     
+
       }
     </div>
-    
+
   );
 
-//   return (
-//     <div>
-//       {/* <div class="card"> */}
-//       <div className='text-center page-header p-2 regular-text-shadow regular-shadow' id='' role='tab'>
-//           <h3 className='display-4 font-weight-bold mb-0'>
-//             Health Information System
-//           </h3>
-//         </div>
+  //   return (
+  //     <div>
+  //       {/* <div class="card"> */}
+  //       <div className='text-center page-header p-2 regular-text-shadow regular-shadow' id='' role='tab'>
+  //           <h3 className='display-4 font-weight-bold mb-0'>
+  //             Health Information System
+  //           </h3>
+  //         </div>
 
-      // <div>
-      // {
-      //     user === null &&
-      //     <Login startLogin={handleLogin}/>
-      // }
-      // </div>
-      // <div>
-      // {
-      //      user !== null && abhaid === null &&
-      //     <Abha  fetch={handleabhafetch}/>
-      // }
-      // </div>
-//       <div>
-//       {
-   //        abhaid !== null  &&
-     //     <Otp  setOtp={handleotp}/>
-//       }
-//        {   p_data != null &&
-//           <div style={{textAlign:'center'}}>
-//             {/* <div>{p_data}</div> */}
+  // <div>
+  // {
+  //     user === null &&
+  //     <Login startLogin={handleLogin}/>
+  // }
+  // </div>
+  // <div>
+  // {
+  //      user !== null && abhaid === null &&
+  //     <Abha  fetch={handleabhafetch}/>
+  // }
+  // </div>
+  //       <div>
+  //       {
+  //        abhaid !== null  &&
+  //     <Otp  setOtp={handleotp}/>
+  //       }
+  //        {   p_data != null &&
+  //           <div style={{textAlign:'center'}}>
+  //             {/* <div>{p_data}</div> */}
 
-//             <div> <b>Name :</b> {JSON.parse(p_data).name}</div>
-//             <div> <b>Gender:</b> {JSON.parse(p_data).gender}</div>
-//             <div> <b>yearOfBirth: </b> {JSON.parse(p_data).yearOfBirth}</div>
-//             <div> <b>monthOfBirth: </b> {JSON.parse(p_data).monthOfBirth}</div>
-//             <div> <b>dayOfBirth: </b> {JSON.parse(p_data).dayOfBirth}</div>
-//             <div> <b>Address: </b> {JSON.stringify(JSON.parse(p_data).address)} </div>
-//           </div>
-//       }
-      // </div>
+  //             <div> <b>Name :</b> {JSON.parse(p_data).name}</div>
+  //             <div> <b>Gender:</b> {JSON.parse(p_data).gender}</div>
+  //             <div> <b>yearOfBirth: </b> {JSON.parse(p_data).yearOfBirth}</div>
+  //             <div> <b>monthOfBirth: </b> {JSON.parse(p_data).monthOfBirth}</div>
+  //             <div> <b>dayOfBirth: </b> {JSON.parse(p_data).dayOfBirth}</div>
+  //             <div> <b>Address: </b> {JSON.stringify(JSON.parse(p_data).address)} </div>
+  //           </div>
+  //       }
+  // </div>
 
   //   </div>  
   // );

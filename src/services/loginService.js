@@ -5,9 +5,9 @@ import axios from 'axios';
 const requesturl = `http://localhost:9090/login`
 
 const loginStatus = async (login) => {
- console.log(login);
-  const response = await axios.post(requesturl,login)
-  
+  console.log(login);
+  const response = await axios.post(requesturl, login)
+
   return response.data
 }
 

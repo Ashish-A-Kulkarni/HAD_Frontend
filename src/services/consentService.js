@@ -5,9 +5,9 @@ import axios from 'axios';
 const requesturl = `http://localhost:9090/generateconsent`
 
 const requestConsent = async (consent) => {
- 
-  const response = await axios.post(`${requesturl}`,consent)
-  
+
+  const response = await axios.post(`${requesturl}`, consent)
+
   return response.data
 }
 

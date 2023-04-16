@@ -1,12 +1,12 @@
-import React ,{useState} from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import HealthDataForm from './components/HealthDataForm';
 import Menu from './components/Menu';
 import Otp from './components/Otp';
 
-const Initial=({Init})=>{
+const Initial = ({ Init }) => {
 
-return (
+  return (
     <Router>
       <div>
         <li>
@@ -19,13 +19,13 @@ return (
           <Link to="/HealthDataForm">HealthDataForm</Link>
         </li>
         <Routes>
-          <Route path="/" element={<Menu/>} />
-          <Route path="/Otp" element={<Otp/>} />
-          <Route path="/HealthDataForm" element={<HealthDataForm/>} />
+          <Route path="/" element={<Menu />} />
+          <Route path="/Otp" element={<Otp />} />
+          <Route path="/HealthDataForm" element={<HealthDataForm />} />
         </Routes>
       </div>
     </Router>
-    
+
   );
 }
 export default Initial;
